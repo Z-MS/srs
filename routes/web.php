@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/faculties', [\App\Http\Controllers\FacultyController::class, 'show'])->name('faculties');
     Route::post('/faculties', [\App\Http\Controllers\FacultyController::class, 'create'])->name('faculties');
+    Route::get('/faculty/{name}', [\App\Http\Controllers\FacultyController::class, 'showDetails'])->name('faculty');
+    
 
     Route::get('/staff', [\App\Http\Controllers\StaffController::class, 'show'])->name('staff');
 

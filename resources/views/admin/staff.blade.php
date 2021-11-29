@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="mx-10">
-                        <table class="divide-y divide-gray-300">
+                        <button @click="$dispatch('set-open', open = !open)" class="bg-green-500 hover:bg-green-700 text-white font-bold mb-4 py-2 px-4 rounded">Add Staff</button>
+                        <table class="border divide-y divide-gray-300">
                             <thead>
                                 <tr>
                                     <th class="px-6 py-2 text-sm text-gray-500">Name</th>

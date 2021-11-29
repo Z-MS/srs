@@ -9,9 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="mx-10" x-data="addNewForm()">
+                    <div class="mx-10" x-data="addNewForm()" 
+                        @set-open="openPopup($event)"
+                        @set-close="closePopup"
+                    >
+                        <template x-if="openEdit">
+                            <x-popup title="Confirm Delete" id="viewdit"></x-popup>
+                        </template>
                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold mb-4 py-2 px-4 rounded"
                         x-ref="modal1_button" @click="open = true">Add Faculty</button>
+                      
+
                         <div role="dialog"
                             aria-labelledby="modal1_label"
                             aria-modal="true"
@@ -57,7 +65,6 @@
                                                 {{ __('Submit') }}
                                             </x-button>
                                         </div>
-                                        <p x-text="message"></p>
                                     </form>
 
                                 </div>
@@ -75,8 +82,22 @@
         function addNewForm() {
             return {
                 open: false,
+                openEdit: false,
+                openNew: false,
                 form: document.querySelector('#new-fac-form'),
                 message: '',
+                closePopup() {
+                    if(this.openNew)
+                        this.openNew = false
+                    else
+                        this.openEdit = false
+                },
+                openPopup(event) {
+                    if(event.detail.openNew)
+                        this.openNew = true
+                    else
+                        this.openEdit = true;
+                },
                 submitData() {
                     fetch("{{ route('faculties') }}", {
 				        method: 'POST',
