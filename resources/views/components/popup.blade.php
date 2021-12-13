@@ -1,9 +1,9 @@
 @props(['title'])
 <div role="dialog"
-    aria-labelledby="modal1_label"
-    aria-modal="true"
-    tabindex="0"
-    x-data="{ open: true }"
+aria-labelledby="modal1_label"
+aria-modal="true"
+tabindex="0"
+x-data="{ open: true, info: '' }"
     x-cloak
     x-show=open
     class="fixed top-0 left-0 w-full min-h-screen flex justify-center items-center">
@@ -14,7 +14,7 @@
         x-transition:leave="delay-150"></div>
     <div data-modal-document
         @click.stop=""
-        @click.away="$dispatch('set-close');"
+        @click.away="open = false; $dispatch('set-close')"
         x-show="open"
         x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="transform scale-50 opacity-0"
@@ -29,6 +29,7 @@
         <div class="p-6">
             {{ $slot }}
         </div>
+        <p x-text="info"></p>
     </div>
 </div>
 <!-- @set-open.window="open = $event.detail.open" -->

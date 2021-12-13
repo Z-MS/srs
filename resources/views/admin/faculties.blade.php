@@ -13,9 +13,6 @@
                         @set-open="openPopup($event)"
                         @set-close="closePopup"
                     >
-                        <template x-if="openEdit">
-                            <x-popup title="Confirm Delete" id="viewdit"></x-popup>
-                        </template>
                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold mb-4 py-2 px-4 rounded"
                         x-ref="modal1_button" @click="open = true">Add Faculty</button>
                       
@@ -84,17 +81,22 @@
                 open: false,
                 openEdit: false,
                 openNew: false,
+                // openDelete: false,
                 form: document.querySelector('#new-fac-form'),
                 message: '',
                 closePopup() {
                     if(this.openNew)
                         this.openNew = false
+                   /* if(this.openDelete)
+                        this.openDelete = false*/
                     else
                         this.openEdit = false
                 },
                 openPopup(event) {
                     if(event.detail.openNew)
                         this.openNew = true
+                    /*if(event.detail.openDelete)
+                        this.openDelete = true*/
                     else
                         this.openEdit = true;
                 },
@@ -107,7 +109,6 @@
                         this.form.reset()
                         response.text().then((text) => {
                             var table = document.querySelector('#showfaculties')
-                            table.innerHTML = ''
                             table.innerHTML = text
                         })
                     })
