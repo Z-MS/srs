@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/courses', [\App\Http\Controllers\CourseController::class, 'show'])->name('courses');
     Route::post('/courses', [\App\Http\Controllers\CourseController::class, 'create'])->name('courses');
-
+    Route::post('/deps/{fac}', [\App\Http\Controllers\CourseController::class, 'fetchDeps'])->name('deps');
 
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
 

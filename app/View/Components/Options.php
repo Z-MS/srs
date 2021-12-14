@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Select extends Component
+class Options extends Component
 {
     /**
      * Create a new component instance.
@@ -12,11 +12,13 @@ class Select extends Component
      * @return void
      */
 
-    public $selected;
+    // public $selected;
+    public $options;
+    public $name;
 
-    public function __construct($selected)
+    public function __construct($options = null)
     {
-        $this->selected = $selected;
+        $this->options = $options;
     }
 
     /**
@@ -26,7 +28,7 @@ class Select extends Component
      */
     public function render()
     {
-        return view('components.select');
+        return view('components.options');
     }
 
     public function isSelected($option) {

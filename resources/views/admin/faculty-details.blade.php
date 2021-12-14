@@ -73,7 +73,7 @@
                             </tr>
                         </thead>
                         <tbody id="deprows">
-                            <x-table-row :items="courses" :fields="$fields"/>                 
+                            <x-table-row :items="$items" :fields="$fields"/>                 
                         </tbody>
                     </table>
     

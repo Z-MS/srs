@@ -37,9 +37,12 @@ class FacultyController extends Controller
         $data['updated_at'] = now();
         // update, then fetch modified data
         DB::table('faculties')->where('name', $request->name)->update($data);
-        $faculty = DB::table('faculties')->where('name', $request->name)->get()[0];
 
-        return view('admin.faculty-details', ['faculty' => $faculty]);
+        $faculty = DB::table('faculties')->where('name', $request->name)->first();
+        $departments = DB::table('departments')->where('faculty', $faculty->code)->get();
+        
+        return view('admin.faculty-details', ['faculty' => $faculty, 'items' => $departments, 'fields' => ['name', 'code']]);
+    
     }
 
     public function destroy(Request $request, $name) {
@@ -62,4 +65,11 @@ class FacultyController extends Controller
         
         return view('admin.faculty-details', ['faculty' => $faculty, 'items' => $departments, 'fields' => ['name', 'code']]);
     }
+
+    /* public function showDetailsHelper($name) {
+        $faculty = DB::table('faculties')->where('name', $request->name)->first();
+        $departments = DB::table('departments')->where('faculty', $faculty->code)->get();
+        
+        return view('admin.faculty-details', ['faculty' => $faculty, 'items' => $departments, 'fields' => ['name', 'code']]);
+    } */
 }
