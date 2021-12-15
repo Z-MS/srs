@@ -5,29 +5,29 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('admin.dashboard') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admindash')" :active="request()->routeIs('admindash')">
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('staff')" :active="request()->routeIs('staff')">
+                    <x-nav-link :href="route('admin.staff')" :active="request()->routeIs('admin.staff')">
                         {{ __('Staff') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('students')" :active="request()->routeIs('students')">
+                    <x-nav-link :href="route('admin.students')" :active="request()->routeIs('admin.students')">
                         {{ __('Students') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('faculties')" :active="request()->routeIs('faculties')">
+                    <x-nav-link :href="route('admin.faculties')" :active="request()->routeIs('admin.faculties')">
                         {{ __('Faculties') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('courses')" :active="request()->routeIs('courses')">
+                    <x-nav-link :href="route('admin.courses')" :active="request()->routeIs('admin.courses')">
                         {{ __('Courses') }} <!-- My Courses - Students & Teachers | All Courses - Admin -->
                     </x-nav-link>
-                    <x-nav-link :href="route('results')" :active="request()->routeIs('results')"> <!-- For everybody -->
+                    <x-nav-link :href="route('admin.results')" :active="request()->routeIs('admin.results')"> <!-- For everybody -->
                         {{ __('Exam Results') }}
                     </x-nav-link>
                 </div>

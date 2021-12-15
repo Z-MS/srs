@@ -20,17 +20,17 @@
                             <div class="grid grid-rows-2 gap-6">
                                 <div>
                                     <x-label for="name" :value="__('Name')" />
-                                    <x-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ auth()->user()->name }}" autofocus />
+                                    <x-input id="name" class="block mt-1 w-full bg-gray-200" type="text" name="name" value="{{ auth()->user()->name }}" disabled/>
                                 </div>
                                 <div>
                                     <x-label for="email" :value="__('Email')" />
-                                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ auth()->user()->email }}" autofocus />
+                                    <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ auth()->user()->email }}" />
                                 </div>
                             </div>
                             <div class="grid grid-rows-2 gap-6">
                                 <div>
                                     <x-label for="date_of_birth" :value="__('Date of birth')"/>
-                                    <x-input id="dob" class="block mt-1 w-full" type="date" value="{{ auth()->user()->date_of_birth }}"/>    
+                                    <x-input id="dob" class="block mt-1 w-full bg-gray-200" type="date" value="{{ auth()->user()->date_of_birth }}" disabled/>    
                                 </div>
                                 <div>
                                     <x-label for="photo" :value="__('Profile Photo')" />
@@ -50,27 +50,27 @@
                             {{-- <div class="grid grid-rows-3 gap-6"> --}}
                                 <div>
                                     <x-label for="state" :value="__('State')" />
-                                    <x-input id="state" class="block mt-1 w-full" type="text" name="state" value="{{ auth()->user()->state }}" />
+                                    <x-input id="state" class="block mt-1 w-full bg-gray-200" type="text" name="state" value="{{ auth()->user()->state }}" disabled/>
                                 </div>
                                 <div>
                                     <x-label for="lga" :value="__('LGA')" />
-                                    <x-input id="lga" class="block mt-1 w-full" type="text" name="lga" value="{{ auth()->user()->lga }}" />
+                                    <x-input id="lga" class="block mt-1 w-full bg-gray-200" type="text" name="lga" value="{{ auth()->user()->lga }}" disabled/>
                                 </div>
                                 <div>
                                     <x-label for="gender" :value="__('Gender')" />
-                                    <x-input id="gender" class="block mt-1 w-full" type="text" name="gender" value="{{ auth()->user()->gender }}" />
+                                    <x-input id="gender" class="block mt-1 w-full bg-gray-200" type="text" name="gender" value="{{ auth()->user()->gender }}" disabled/>
                                 </div>
                                 <div>
                                     <x-label for="faculty" :value="__('Faculty')" />
-                                    <x-input id="faculty" class="block mt-1 w-full" type="text" name="faculty" value="{{ auth()->user()->faculty }}"/>
+                                    <x-input id="faculty" class="block mt-1 w-full bg-gray-200" type="text" name="faculty" value="{{ auth()->user()->faculty }}" disabled/>
                                 </div>
                                 <div>
                                     <x-label for="department" :value="__('Department')" />
-                                    <x-input id="department" class="block mt-1 w-full" type="text" name="department" value="{{ auth()->user()->department }}" />
+                                    <x-input id="department" class="block mt-1 w-full bg-gray-200" type="text" name="department" value="{{ auth()->user()->department }}" disabled/>
                                 </div>
                                 <div>
                                     <x-label for="level" :value="__('Level')" />
-                                    <x-input id="level" class="block mt-1 w-full" type="text" name="level" value="{{ auth()->user()->level }}" />
+                                    <x-input id="level" class="block mt-1 w-full bg-gray-200" type="text" name="level" value="{{ auth()->user()->level }}" disabled/>
                                 </div>
                                 {{-- </div> --}}
                             </div>

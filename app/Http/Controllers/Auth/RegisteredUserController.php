@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
         // This is where you will put the logic for redirecting to admin/student dashboards
         if($user->role === 'Admin') {
-            return redirect('admindash');
+            return redirect('admin/admdashboard');
         } else {
             return redirect(RouteServiceProvider::HOME);
         }
